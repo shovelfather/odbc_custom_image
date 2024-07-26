@@ -1,7 +1,9 @@
 FROM decisionscore/platform:latest
 
 RUN apt-get update -y &&\
-  apt-get install -y unixodbc odbcinst &&\
+  apt-get install -y --no-install-recommends \
+  unixodbc=2.3.11-2+deb12u1 odbcinst=2.3.11-2+deb12u1 &&\
+  rm -rf /var/lib/apt/lists/* &&\
   mkdir -p "/opt/db2"
 
 ENV IBM_DB_HOME="/opt/db2"
