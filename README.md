@@ -15,5 +15,14 @@ Do note that you'll be required to create an account before proceeding.
 ## How to build
 
 ```bash
-docker build -t <your_repository_name>:<your_tag_name> .
+git clone https://github.com/shovelfather/odbc_custom_image.git
+cd odbc_custom_image
+# make sure you've moved the driver files here under the `clidriver` directory
+# before building.
+docker build .
 ```
+
+> [!TIP]
+> Specify `--build-arg tag=<desired_decisions_version>` if you want to base the
+> build on a version other than latest -- the above will default to latest if no
+> `tag` is specified.

@@ -1,5 +1,5 @@
-#`latest` tag is a placeholder, use the version you need
-FROM decisionscore/platform:latest
+ARG tag="latest"
+FROM "decisionscore/platform:${tag}"
 
 #note that this will fail if you don't have an internet connection
 RUN apt-get update -y &&\
